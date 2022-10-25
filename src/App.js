@@ -3,6 +3,7 @@ import './App.css';
 import Inputs from './Components/Inputs';
 import CityButtons from './Components/CityButtons';
 import TimeLocation from './Components/TimeLocation';
+import TempDetails from './Components/TempDetails';
 
 export default function App() {
     return (
@@ -10,6 +11,7 @@ export default function App() {
             <CityButtons />
             <Inputs />
             <TimeLocation />
+            <TempDetails />
         </div>
     );
 }
