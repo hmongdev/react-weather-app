@@ -8,7 +8,7 @@ import getFormattedWeatherData from './services/weatherService';
 import { useState, useEffect } from 'react';
 
 export default function App() {
-    const [query, setQuery] = useState({ q: 'new york' });
+    const [query, setQuery] = useState({ q: 'minneapolis' });
     const [units, setUnits] = useState({ units: 'imperial' });
     const [weather, setWeather] = useState(null);
 
@@ -27,9 +27,9 @@ export default function App() {
     }, [query, units]);
 
     return (
-        <div className="mx-auto py-10 px-32 bg-gradient-to-br from-cyan-500 to to-blue-900 h-fit shadow-xl shadow-gray-400">
-            <CityButtons />
-            <Inputs />
+        <div className="mx-auto py-10 px-10 bg-gradient-to-br from-cyan-500 to to-blue-900 h-fit shadow-xl shadow-gray-400">
+            <CityButtons setQuery={setQuery} />
+            <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
             {weather && (
                 <>
                     <TimeLocation weather={weather} />
