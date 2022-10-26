@@ -4,11 +4,11 @@ function CityButtons() {
     const cities = [
         {
             id: 1,
-            name: 'Paris',
+            name: 'New York',
         },
         {
             id: 2,
-            name: 'New York',
+            name: 'Paris',
         },
         {
             id: 3,

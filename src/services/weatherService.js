@@ -83,6 +83,7 @@ const getFormattedWeatherData = async (searchParams) => {
     return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
+//function with luxon library that formats the local time
 const formatToLocalTime = (
     secs,
     zone,
