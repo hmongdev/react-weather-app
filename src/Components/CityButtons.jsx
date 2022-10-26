@@ -33,7 +33,7 @@ function CityButtons() {
             {cities.map((city) => (
                 <button
                     key={city.id}
-                    className="text-white text-md font-medium transition ease-in hover:scale-110"
+                    className="text-white text-md font-medium transition ease-out hover:scale-120 hover:text-orange-500"
                 >
                     {city.name}
                 </button>

@@ -40,7 +40,7 @@ function TempDetails() {
                 </div>
             </div>
 
-            <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
+            <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm pt-10">
                 <UilSun />
                 <p className="font-light">
                     Rise: <span className="font-medium ml-1">6:45 AM</span>

@@ -4,6 +4,7 @@ import Inputs from './Components/Inputs';
 import CityButtons from './Components/CityButtons';
 import TimeLocation from './Components/TimeLocation';
 import TempDetails from './Components/TempDetails';
+import Forecast from './Components/Forecast';
 
 export default function App() {
     return (
@@ -12,6 +13,8 @@ export default function App() {
             <Inputs />
             <TimeLocation />
             <TempDetails />
+            <Forecast title="hourly forecast" />
+            <Forecast title="daily forecast" />
         </div>
     );
 }
