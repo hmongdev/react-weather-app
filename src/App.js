@@ -26,18 +26,20 @@ export default function App() {
         //every time query or units change, fetch new data
     }, [query, units]);
 
-    //conditional background
+    //conditional background based on weather temperature
     const formatBackground = () => {
-        if (!weather) return 'from-cyan-700 to blue-700';
+        //standard background
+        if (!weather) return 'from-cyan-500 to to-blue-900';
         const threshold = units === 'metric' ? 20 : 60;
-        if (weather.temp <= threshold) return 'from-cyan-700 to blue-700';
-
+        //if weather is cold...
+        if (weather.temp <= threshold) return 'from-cyan-500 to to-blue-900';
+        //else weather is warm...
         return 'from-yellow-700 to to-orange-700';
     };
 
     return (
         <div
-            className={`mx-auto py-10 px-10 bg-gradient-to-br from-cyan-500 to to-blue-900 h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+            className={`mx-auto py-10 px-10 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
         >
             <CityButtons setQuery={setQuery} />
             <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
