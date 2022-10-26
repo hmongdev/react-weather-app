@@ -16,7 +16,7 @@ function CityButtons({ setQuery }) {
         },
         {
             id: 4,
-            name: 'Bangkok',
+            name: 'Sydney',
         },
         {
             id: 5,

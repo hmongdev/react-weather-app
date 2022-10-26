@@ -6,6 +6,8 @@ import TempDetails from './components/TempDetails';
 import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/weatherService';
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
     const [query, setQuery] = useState({ q: 'minneapolis' });
@@ -18,7 +20,16 @@ export default function App() {
     useEffect(() => {
         //on load, fetch weather data
         const fetchWeather = async () => {
+            //toastify FETCH
+            const message = query.q ? query.q : 'current location.';
+            toast.info(`Fetching weather for ${message}`);
+
+            //getWeather
             await getFormattedWeatherData({ ...query, units }).then((data) => {
+                //toastify SUCCESS
+                toast.success(
+                    `Successfully fetched weather for ${data.name}, ${data.country}`
+                );
                 setWeather(data);
             });
         };
@@ -51,6 +62,11 @@ export default function App() {
                     <Forecast title="daily forecast" items={weather.daily} />
                 </>
             )}
+            <ToastContainer
+                autoClose={5000}
+                theme="colored"
+                newestOnTop={true}
+            />
         </div>
     );
 }
