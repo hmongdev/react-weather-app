@@ -5,11 +5,13 @@ import CityButtons from './components/CityButtons';
 import TimeLocation from './components/TimeLocation';
 import TempDetails from './components/TempDetails';
 import Forecast from './components/Forecast';
-import getWeatherData from './services/weatherService';
+import getFormattedWeatherData from './services/weatherService';
 
 export default function App() {
     const fetchWeather = async () => {
-        const data = await getWeatherData('weather', { q: 'minneapolis' });
+        const data = await getFormattedWeatherData({
+            q: 'minneapolis',
+        });
         console.log(data);
     };
 
