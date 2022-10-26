@@ -11,6 +11,7 @@ export default function App() {
     const fetchWeather = async () => {
         const data = await getFormattedWeatherData({
             q: 'minneapolis',
+            // units: 'imperial',
         });
         console.log(data);
     };
