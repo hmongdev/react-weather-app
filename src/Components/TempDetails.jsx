@@ -49,7 +49,9 @@ function TempDetails({
                     <div className="flex font-light text-sm items-center justify-center">
                         <UilWind size={25} className="mr-1" />
                         Wind:
-                        <span className="font-medium ml-2">{speed} MPH</span>
+                        <span className="font-medium ml-2">
+                            {Math.round(speed)} MPH
+                        </span>
                     </div>
                 </div>
             </div>
