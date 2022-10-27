@@ -1,10 +1,10 @@
 import './App.css';
-import Inputs from './components/Inputs';
-import CityButtons from './components/CityButtons';
-import TimeLocation from './components/TimeLocation';
-import TempDetails from './components/TempDetails';
-import Forecast from './components/Forecast';
-import getFormattedWeatherData from './services/weatherService';
+import Inputs from './Components/Inputs';
+import CityButtons from './Components/CityButtons';
+import TimeLocation from './Components/TimeLocation';
+import TempDetails from './Components/TempDetails';
+import Forecast from './Components/Forecast';
+import getFormattedWeatherData from './Services/weatherService';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
