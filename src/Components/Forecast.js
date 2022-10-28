@@ -1,5 +1,5 @@
 import React from 'react';
-import { iconUrlFromCode } from '../Services/weatherService';
+import { iconUrlFromCode } from '../services/weatherService';
 
 function Forecast({ title, items }) {
     return (
