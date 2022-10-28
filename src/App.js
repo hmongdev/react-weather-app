@@ -25,13 +25,15 @@ export default function App() {
             toast.info(`Fetching weather for ${message}`);
 
             //getWeather
-            await getFormattedWeatherData({ ...query, units }).then((data) => {
-                //toastify SUCCESS
-                toast.success(
-                    `Successfully fetched weather for ${data.name}, ${data.country}`
-                );
-                setWeather(data);
-            });
+            await getFormattedWeatherData({ ...query, units: 'imperial' }).then(
+                (data) => {
+                    //toastify SUCCESS
+                    toast.success(
+                        `Successfully fetched weather for ${data.name}, ${data.country}`
+                    );
+                    setWeather(data);
+                }
+            );
         };
         fetchWeather();
         //every time query or units change, fetch new data
@@ -41,7 +43,7 @@ export default function App() {
     const formatBackground = () => {
         //standard background
         if (!weather) return 'from-cyan-500 to to-blue-900';
-        const threshold = units === 'metric' ? 20 : 60;
+        const threshold = units === 'imperial' ? 20 : 60;
         //if weather is cold...
         if (weather.temp <= threshold) return 'from-cyan-500 to to-blue-900';
         //else weather is warm...
