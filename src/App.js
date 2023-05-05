@@ -10,9 +10,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
-	const [query, setQuery] = useState({ q: 'minneapolis' });
-	const [units, setUnits] = useState('imperial');
-	const [weather, setWeather] = useState(null);
+    const [query, setQuery] = useState({ q: 'minneapolis' });
+    const [units, setUnits] = useState({ units: 'imperial' });
+    const [weather, setWeather] = useState(null);
 
 	//see what's inside weather => coming from our api
 	console.log(weather);
@@ -24,22 +24,20 @@ export default function App() {
 			const message = query.q ? query.q : 'current location.';
 			toast.info(`Fetching weather for ${message}`);
 
-			console.log(units);
-
-			//getWeather
-			await getFormattedWeatherData({ ...query, units }).then(
-				(data) => {
-					//toastify SUCCESS
-					toast.success(
-						`Successfully fetched weather for ${data.name}, ${data.country}`
-					);
-					setWeather(data);
-				}
-			);
-		};
-		fetchWeather();
-		//every time query or units change, fetch new data
-	}, [query, units]);
+            //getWeather
+            await getFormattedWeatherData({ ...query, units: 'imperial' }).then(
+                (data) => {
+                    //toastify SUCCESS
+                    toast.success(
+                        `Successfully fetched weather for ${data.name}, ${data.country}`
+                    );
+                    setWeather(data);
+                }
+            );
+        };
+        fetchWeather();
+        //every time query or units change, fetch new data
+    }, [query, units]);
 
 	//conditional background based on weather temperature
 	const formatBackground = () => {
