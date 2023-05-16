@@ -53,7 +53,7 @@ export default function App() {
 
 	return (
 		<div
-			className={`mx-auto py-10 px-10 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()} h-screen`}
+			className={`h-screen mx-auto py-10 px-10 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`}
 		>
 			<CityButtons setQuery={setQuery} />
 			<Inputs
