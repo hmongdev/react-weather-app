@@ -3,7 +3,7 @@ import Inputs from './components/Inputs';
 import CityButtons from './components/CityButtons';
 import TimeLocation from './components/TimeLocation';
 import TempDetails from './components/TempDetails';
-// import Forecast from './components/Forecast';
+import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/weatherService';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
 	const [query, setQuery] = useState({ q: 'minneapolis' });
-	const [units, setUnits] = useState({ units: 'imperial' });
+	const [units, setUnits] = useState('imperial');
 	const [weather, setWeather] = useState(null);
 
 	//see what's inside weather => coming from our api
@@ -50,20 +50,10 @@ export default function App() {
 		//else weather is warm...
 		return 'from-yellow-700 to to-orange-700';
 	};
-    //conditional background based on weather temperature
-    const formatBackground = () => {
-        //standard background
-        if (!weather) return 'from-cyan-500 to to-blue-900';
-        const threshold = units === 'metric' ? 20 : 60;
-        //if weather is cold...
-        if (weather.temp <= threshold) return 'from-cyan-500 to to-blue-900';
-        //else weather is warm...
-        return 'from-yellow-700 to to-orange-700';
-    };
 
 	return (
 		<div
-			className={`h-screen mx-auto py-10 px-10 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`}
+			className={`mx-auto py-10 px-10 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()} h-screen`}
 		>
 			<CityButtons setQuery={setQuery} />
 			<Inputs
@@ -78,8 +68,8 @@ export default function App() {
 					{/* <Forecast
 						title="hourly forecast"
 						items={weather.hourly}
-					/> */}
-					{/* <Forecast
+					/>
+					<Forecast
 						title="daily forecast"
 						items={weather.daily}
 					/> */}
