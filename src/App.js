@@ -3,7 +3,7 @@ import Inputs from './components/Inputs';
 import CityButtons from './components/CityButtons';
 import TimeLocation from './components/TimeLocation';
 import TempDetails from './components/TempDetails';
-import Forecast from './components/Forecast';
+// import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/weatherService';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';

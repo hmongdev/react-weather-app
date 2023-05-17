@@ -1,13 +1,17 @@
 import { DateTime } from 'luxon';
 
-const API_KEY = 'b601b84d0e7ce5864247288c5731f8ae';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-
 // https://api.openweathermap.org/data/2.5/weather?lat=44.98&lon=-93.2638&exclude=current,minutely,hourly,alerts&appid=b601b84d0e7ce5864247288c5731f8ae&units=imperial
+const baseUrl = process.env.REACT_APP_BASE_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const getWeatherData = async (infoType, searchParams) => {
-	const url = new URL(BASE_URL + '/' + infoType);
-	url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+	console.log(`baseUrl and apiKey: ${baseUrl} and ${apiKey}`);
+
+	const url = new URL(`${baseUrl}/${infoType}`);
+	url.search = new URLSearchParams({
+		...searchParams,
+		appid: apiKey,
+	});
 
 	console.log(searchParams);
 
