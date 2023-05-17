@@ -1,22 +1,17 @@
 import { DateTime } from 'luxon';
 
+const API_KEY = 'b601b84d0e7ce5864247288c5731f8ae';
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+
 // https://api.openweathermap.org/data/2.5/weather?lat=44.98&lon=-93.2638&exclude=current,minutely,hourly,alerts&appid=b601b84d0e7ce5864247288c5731f8ae&units=imperial
-const baseUrl = process.env.REACT_APP_BASE_URL;
-const apiKey = process.env.REACT_APP_API_KEY;
 
 const getWeatherData = async (infoType, searchParams) => {
-	console.log(`baseUrl and apiKey: ${baseUrl} and ${apiKey}`);
+	const url = new URL(BASE_URL + '/' + infoType);
+	url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
 
-	const url = new URL(`${baseUrl}/${infoType}`);
-	url.search = new URLSearchParams({
-		...searchParams,
-		appid: apiKey,
-	});
+	console.log(`searchparams`, searchParams);
 
-	console.log(searchParams);
-
-	const res = await fetch(url);
-	return await res.json();
+	return await fetch(url).then((res) => res.json());
 };
 
 const formatCurrentWeather = (data) => {
@@ -80,7 +75,7 @@ const getFormattedWeatherData = async (searchParams) => {
 
 	const { lat, lon } = formattedCurrentWeather;
 
-	const formattedForecastWeather = await getWeatherData('onecall', {
+	const formattedForecastWeather = await getWeatherData('weather', {
 		lat,
 		lon,
 		exclude: 'current,minutely,alerts',
