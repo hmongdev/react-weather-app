@@ -63,8 +63,6 @@ const formatForecastWeather = (data) => {
 	//         icon: d.weather[0].icon,
 	//     };
 	// });
-
-	return { timezone };
 };
 
 const getFormattedWeatherData = async (searchParams) => {
